@@ -22,11 +22,11 @@ void merge(vector<int>& arr, size_t beg, size_t mid, size_t end) {
 }
 
 void mergeSort(vector<int>& arr, size_t beg, size_t end) {
-    if (beg >= end) return;
+    if (beg + 1 >= end) return;
     size_t mid = beg + (end - beg) / 2;
     mergeSort(arr, beg, mid);
-    mergeSort(arr, mid + 1, end);
-    merge(arr, beg, mid + 1, end + 1);
+    mergeSort(arr, mid, end);
+    merge(arr, beg, mid, end);
 }
 
 int main(int argc, char* argv[]) {
@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    size_t n = stoi(argv[1]);
+    size_t n = stoull(argv[1]);
     vector<int> arr(n);
     srand(time(0));
 

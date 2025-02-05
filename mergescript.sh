@@ -2,6 +2,7 @@
 #SBATCH --job-name=myjob
 #SBATCH --partition=Centaurus
 #SBATCH --time=01:00:00
+#SBATCH --mem=8G
 
 ./mergeSort 10
 ./mergeSort 100
