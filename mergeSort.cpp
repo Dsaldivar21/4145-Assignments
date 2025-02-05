@@ -23,11 +23,11 @@ void merge(vector<int>& arr, vector<int>& temp, size_t beg, size_t mid, size_t e
 }
 
 void mergeSort(vector<int>& arr, vector<int>& temp, size_t beg, size_t end) {
-    if (end - beg < 1) return;
+    if (beg >= end) return;
     size_t mid = beg + (end - beg) / 2;
     mergeSort(arr, temp, beg, mid);
-    mergeSort(arr, temp, mid, end);
-    merge(arr, temp, beg, mid, end);
+    mergeSort(arr, temp, mid + 1, end);
+    merge(arr, temp, beg, mid + 1, end + 1);
 }
 
 int main(int argc, char* argv[]) {
