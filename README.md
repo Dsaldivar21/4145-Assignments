@@ -1,5 +1,5 @@
 # README: Running MergeSort on a SLURM Cluster
-
+*DISCLAIMER THIS WAS AI GENERATED OpenAI. (2025). ChatGPT [Large language model]. https://chatgpt.com*
 ## Prerequisites
 Ensure you have the following installed:
 - A Linux-based system with SLURM workload manager
