@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --job-name=myjob
+#SBATCH --job-name=mergeSort
 #SBATCH --partition=Centaurus
 #SBATCH --time=01:00:00
-#SBATCH --mem=8G
+#SBATCH --mem=16G
 
 ./mergeSort 10
 ./mergeSort 100
