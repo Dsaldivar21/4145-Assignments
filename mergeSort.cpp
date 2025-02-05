@@ -6,28 +6,27 @@
 
 using namespace std;
 
-void merge(vector<int>& arr, vector<int>& temp, size_t beg, size_t mid, size_t end) {
-    size_t i = beg, j = mid, k = beg;
+void merge(vector<int>& arr, size_t beg, size_t mid, size_t end) {
+    vector<int> temp(end - beg);
+    size_t i = beg, j = mid, k = 0;
+
     while (i < mid && j < end) {
-        if (arr[i] < arr[j]) {
-            temp[k++] = arr[i++];
-        } else {
-            temp[k++] = arr[j++];
-        }
+        temp[k++] = (arr[i] < arr[j]) ? arr[i++] : arr[j++];
     }
     while (i < mid) temp[k++] = arr[i++];
     while (j < end) temp[k++] = arr[j++];
-    for (size_t l = beg; l < end; ++l) {
-        arr[l] = temp[l];
+
+    for (size_t l = 0; l < k; ++l) {
+        arr[beg + l] = temp[l];
     }
 }
 
-void mergeSort(vector<int>& arr, vector<int>& temp, size_t beg, size_t end) {
+void mergeSort(vector<int>& arr, size_t beg, size_t end) {
     if (beg >= end) return;
     size_t mid = beg + (end - beg) / 2;
-    mergeSort(arr, temp, beg, mid);
-    mergeSort(arr, temp, mid + 1, end);
-    merge(arr, temp, beg, mid + 1, end + 1);
+    mergeSort(arr, beg, mid);
+    mergeSort(arr, mid + 1, end);
+    merge(arr, beg, mid + 1, end + 1);
 }
 
 int main(int argc, char* argv[]) {
@@ -36,14 +35,14 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    size_t n = atoi(argv[1]);
-
-    vector<int> arr(n), temp(n);
+    size_t n = stoi(argv[1]);
+    vector<int> arr(n);
     srand(time(0));
+
     for (size_t i = 0; i < n; i++) arr[i] = rand();
 
     auto start = chrono::high_resolution_clock::now();
-    mergeSort(arr, temp, 0, n - 1);
+    mergeSort(arr, 0, n - 1);
     auto end = chrono::high_resolution_clock::now();
 
     double duration = chrono::duration<double>(end - start).count();
