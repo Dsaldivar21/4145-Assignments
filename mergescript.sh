@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=myjob
 #SBATCH --partition=Centaurus
-#SBATCH --time=00:01:00
+#SBATCH --time=01:00:00
 
 ./mergeSort 10
 ./mergeSort 100
