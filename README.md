@@ -12,7 +12,6 @@ Before running MergeSort, compile the C++ code:
 ```sh
 g++ -o mergeSort mergeSort.cpp
 ```
-
 ## Running the MergeSort Benchmark
 To submit the MergeSort job to the SLURM scheduler, use the provided script:
 ```sh
@@ -25,6 +24,21 @@ Once the job completes, output times will be available in the standard output fi
 ```sh
 sbatch mergescript.sh > output.csv
 ```
+
+## Benchmarking
+To analyze performance, check the `output.csv` file for execution times. A sample output:
+```
+Sorted 10 elements in 3.24e-06 seconds.
+Sorted 100 elements in 3.0458e-05 seconds.
+Sorted 1000 elements in 0.000350368 seconds.
+Sorted 10000 elements in 0.00416242 seconds.
+Sorted 100000 elements in 0.0485208 seconds.
+Sorted 1000000 elements in 0.542528 seconds.
+Sorted 10000000 elements in 6.08743 seconds.
+Sorted 100000000 elements in 67.3788 seconds.
+Sorted 1000000000 elements in 740.605 seconds.
+```
+These results follow an expected time complexity of O(n log n). The times increase roughly proportionally to `n log n`, confirming the algorithm behaves as expected. If results deviate significantly, consider checking for hardware limitations or background processes affecting performance.
 
 ## Plotting Results
 To visualize the sorting performance, run the Python script:
@@ -43,5 +57,4 @@ This will generate a log-log plot of sorting time vs. number of elements, saved 
 - If Python script fails, install dependencies with:
   ```sh
   pip install pandas matplotlib
-  ```
 
