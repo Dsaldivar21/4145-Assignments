@@ -6,6 +6,14 @@ Ensure you have the following installed:
 - GCC compiler
 - Bash shell
 - Python 3 with pandas and matplotlib libraries
+- Access to UNCC's Centaurus node cluster
+
+## Connecting
+Open the terminal and enter:
+```sh
+ssh unccuser@hpc-student.uncc.edu
+```
+You will be prompted to enter your password and sign in via Duo. Once verified access git clone this repo.
 
 ## Compilation
 Before running MergeSort, compile the C++ code:
